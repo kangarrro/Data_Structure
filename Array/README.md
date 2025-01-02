@@ -19,6 +19,7 @@
         -   부가정보가 필요하지 않아, 메모리효율이 높음.
     -   단점:
         -   크기변경 시 메모리 재할당 및 복사 필요.
+        -   중간 삽입/삭제 시 연속된 요소를 이동해야 하므로 비효율적.
 
 ## 3. 복잡성
 
@@ -43,6 +44,8 @@
 ## 5. 사용예제
 
 ```C++
+#include <iostream>
+#include <array>
 int main(){
     // 정적배열
     int array0[10] = {0, };
@@ -51,6 +54,8 @@ int main(){
     int *array1 = new int[10];
     delete[] array1;
 
+    // 또한 아래와 같이 STL의 array를 이용할 수도 있습니다.
+    std::array<int, 10> cpp_array = {0, };
     return 0;
 }
 ```
