@@ -74,15 +74,18 @@
 
 -   [Adjacency List](/Graph/AdjacencyList/)
 -   [Adjacency Matrix](/Graph/AdjecencyMatrix/)
+-   [Weighted Graph](/Graph/WeightedGraph/)
+-   [Directed Acylic Graph(DAG)](/Graph/DirectedAcylicGraph/)
 
 ### 9. [해시(Hash)](/Hash/)
 
 -   [Basic Hash](/Hash/BasicHash/)
 -   [Separate Chaining](/Hash/SeparateChaining/)
 -   [Open Addressing](/Hash/OpenAddressing/)
--   [Cuckoo Hashing](/Hash/CuckooHashing/)
 -   [Count Min Sketch](/Hash/CountMinSketch/)
 -   [BloomFilter](/Hash/BloomFilter/)
+-   [Consistent Hashing](/Hash/ConsistentHashing/)
+-   [Cuckoo Hashing](/Hash/CuckooHashing/)
 
 ### 10. [집합(Union Find)](/UnionFind/)
 
