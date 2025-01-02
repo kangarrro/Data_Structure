@@ -15,6 +15,7 @@
 ### 1. [배열(Array)](/Array/)
 
 -   [Dynamic Array](/Array/DynamicArray/)
+-   [Circular Array](/Array/CircularArray/)
 -   [Sparse Array](/Array/SparseArray/)
 
 ### 2. [연결리스트(Linked List)](/LinkedList/)
