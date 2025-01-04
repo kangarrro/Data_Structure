@@ -1,3 +1,5 @@
+#pragma once
+
 #include <iostream>
 #include <cstddef> // for size_t
 
@@ -9,7 +11,7 @@ private:
     size_t arrSize;
     size_t arrCapacity;
 
-    void expand(size_t n);
+    void set_capacity(size_t n);
 
 public:
     DynamicArray();
@@ -30,3 +32,6 @@ public:
 
     void resize(size_t n);
 };
+
+
+#include "dynamic_array_impl.h" 

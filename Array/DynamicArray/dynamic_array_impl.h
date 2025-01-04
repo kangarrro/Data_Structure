@@ -35,25 +35,26 @@ bool DynamicArray<T>::empty() const {
 
 template <typename T>
 T& DynamicArray<T>::operator[](size_t index) {
+    if(index >= arrSize) throw std::out_of_range("Index out of range");
     return array[index];
 }
 
 template <typename T>
 const T& DynamicArray<T>::operator[](size_t index) const {
+    if(index >= arrSize) throw std::out_of_range("Index out of range");
     return array[index];
 }
 
 template <typename T>
 void DynamicArray<T>::push_back(const T& value) {
-    if(arrSize == arrCapacity) expand(arrCapacity == 0 ? 1 : arrCapacity*2);
-    array[arrSize] = value;
-    arrSize++;
+    if(arrSize == arrCapacity) set_capacity(arrCapacity == 0 ? 1 : arrCapacity*2);
+    array[arrSize++] = value;
 }
 
 template <typename T>
 void DynamicArray<T>::insert(size_t index, const T& value) {
     if(index > arrSize) return;
-    if(arrSize == arrCapacity) expand(arrSize == 0 ? 1 : arrCapacity*2);
+    if(arrSize == arrCapacity) set_capacity(arrSize == 0 ? 1 : arrCapacity*2);
 
     for(size_t i = arrSize; i > index; i--)
         array[i] = array[i - 1];
@@ -78,26 +79,16 @@ void DynamicArray<T>::erase(size_t index) {
 
 template <typename T>
 void DynamicArray<T>::resize(size_t n) {
-    if(n < arrSize) {
-        arrSize = n;
-        return;
-    }
-
-    T* new_array = new T[n];
-    for(size_t i = 0; i < arrSize; i++)
-        new_array[i] = array[i];
-    delete[] array;
-    array = new_array;
-    arrCapacity = n;
+    if(n > arrSize) set_capacity(n);
+    arrSize = n;
 }
 
 // private method
 template <typename T>
-void DynamicArray<T>::expand(size_t n) {
-    T* new_array = new T[arrCapacity];
+void DynamicArray<T>::set_capacity(size_t n) {
+    T* new_array = new T[n];
     for(size_t i = 0; i < arrSize; i++)
         new_array[i] = array[i];
-
     delete[] array;
     array = new_array;
     arrCapacity = n;
