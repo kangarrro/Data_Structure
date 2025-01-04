@@ -25,12 +25,12 @@ public:
     T& operator[](size_t index);
     const T& operator[](size_t index) const;
     
-    void push_back(const T& value);
-    void insert(size_t index, const T& value);
-    void pop_back();
-    void erase(size_t index);
+    void push_back(const T& value); // 가장 뒤에 요소 추가
+    void insert(size_t index, const T& value); // index에 value 삽입
+    void pop_back(); // 가장 뒤에 있는 요소 삭제
+    void erase(size_t index); // index번쨰 요소 삭제
 
-    void resize(size_t n);
+    void resize(size_t n); // size, capacity n으로 조정
 };
 
 
