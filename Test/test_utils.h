@@ -9,5 +9,10 @@
  */
 
 class TestClass {
+    // 1. random number maker
+    // 2. tester
+    // 3. timer
+    // 4. memory viewer
+    // 5. loging
 
 };
