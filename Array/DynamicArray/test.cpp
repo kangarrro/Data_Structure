@@ -1,45 +1,51 @@
 #include "dynamic_array.h"
+#include "../../Test/test_utils.h"
+#include <iostream>
 using namespace std;
 
 template <typename T>
 void print_array(const T& array) {
-    cout << "SIZE: "<< array.size() << endl;
+    cout << "SIZE: " << array.size() << endl;
     cout << "CAPACITY: " << array.capacity() << endl;
-    for(int i = 0; i < array.size(); cout << array[i++] << ' ') {}
+    for (int i = 0; i < array.size(); cout << array[i++] << ' ') {}
     cout << endl;
 }
 
-
-int main(){
+int main() {
+    // DynamicArray 생성
     DynamicArray<int> arr(5, 0);
 
-    arr.resize(10);
-    print_array(arr);
+    // DS_Tester 생성
+    DS_Tester<DynamicArray<int>> tester(arr);
 
-    for(int i = 0; i < arr.capacity(); i++)
-        arr[i] = i;
-    print_array(arr);
+    // resize 테스트
+    tester.addOperation<void>(
+        [](DynamicArray<int>& obj, size_t newSize) { obj.resize(newSize); },
+        10 // 매개변수
+    );
 
-    arr.push_back(11);
-    print_array(arr);
+    // push_back 테스트
+    tester.addOperation<void>(
+        [](DynamicArray<int>& obj, int value) { obj.push_back(value); },
+        11 // 매개변수
+    );
 
-    arr.push_back(12);
-    print_array(arr);
-    
-    arr.pop_back();
-    print_array(arr);
+    tester.addOperation<void>(
+        [](DynamicArray<int>& obj, int value) { obj.push_back(value); },
+        12 // 매개변수
+    );
 
-    arr.insert(10, 10);
-    print_array(arr);
+    // pop_back 테스트
+    tester.addOperation<void>(
+        [](DynamicArray<int>& obj) { obj.pop_back(); }
+    );
 
-    arr.erase(arr.size() - 1);
+    // 테스트 실행
+    tester.runTest();
+    tester.printResult();
+
+    // 최종 배열 상태 출력
     print_array(arr);
 
     return 0;
 }
-
-// 테스트 및 성능 측정
-
-// 테스트 코드 별도 구현
-
-// 동적배열 코드 전체 주석추가
