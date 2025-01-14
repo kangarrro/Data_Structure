@@ -74,8 +74,6 @@ int main() {
 
 ## 5. 기타
 
--   Python에서
+-   C++ STL vector : C++의 STL vector에서는 vector가 가득찼을 때마다 2배씩 확장합니다.
 
--   C++ STL vector에서
-
--   Java에서
+-   Java ArrayList : Java의 ArrayList에서는 1.5배씩 확장합니다.
